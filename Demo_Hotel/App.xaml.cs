@@ -1,10 +1,4 @@
 ﻿using Demo_Hotel.Model;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace Demo_Hotel
@@ -18,5 +12,11 @@ namespace Demo_Hotel
         /// Представляет контекст данных для взаимодействия с базой данных
         /// </summary>
         public static HotelEntities context = new HotelEntities();
+
+
+        /// <summary>
+        /// Представляет поле для хранения пользователя вошедшего в систему
+        /// </summary>
+        public static User currentUser;
     }
 }
