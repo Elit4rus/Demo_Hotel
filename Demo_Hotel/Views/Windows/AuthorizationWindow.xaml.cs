@@ -23,5 +23,10 @@ namespace Demo_Hotel.Views.Windows
         {
             InitializeComponent();
         }
+
+        private void EntryBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
