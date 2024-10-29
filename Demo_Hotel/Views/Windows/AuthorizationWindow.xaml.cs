@@ -50,8 +50,23 @@ namespace Demo_Hotel.Views.Windows
             {
                 Feedback.Error($"Вы ввели неверный логин или пароль. Пожалуйста проверьте ещё раз введенные данные!");
             }
+            // Иначе если
+            else if (App.currentUser.IsBlocked == true)
+            {
+                Feedback.Error($"Вы заблокированы. Обратитесь к администратору!");
+            }
+            else if (App.currentUser.IsActivated == false)
+            {
+                ChangePasswordWindow changePasswordWindow = new ChangePasswordWindow();
+                changePasswordWindow.ShowDialog();
+            }
+            else
+            {
+                Feedback.Information("Вы успешно авторизовались!");
+                Authorization();
+                Close();
+            }
 
-            Authorization();
         }
         public void Authorization()
         {
