@@ -1,4 +1,5 @@
 ﻿using Demo_Hotel.AppData;
+using System.Linq;
 using System.Windows;
 
 namespace Demo_Hotel.Views.Windows
@@ -43,7 +44,12 @@ namespace Demo_Hotel.Views.Windows
 
         public void Authentication()
         {
+            App.currentUser = App.context.User.FirstOrDefault(user => user.Login == LoginTb.Text && user.Password == PasswordPb.Password);
 
+            if (App.currentUser == null)
+            {
+                Feedback.Error($"Вы ввели неверный логин или пароль. Пожалуйста проверьте ещё раз введенные данные!");
+            }
 
             Authorization();
         }
