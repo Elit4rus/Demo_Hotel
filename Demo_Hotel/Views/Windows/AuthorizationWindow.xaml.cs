@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Demo_Hotel.AppData;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Demo_Hotel.Views.Windows
 {
@@ -25,6 +14,40 @@ namespace Demo_Hotel.Views.Windows
         }
 
         private void EntryBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (Validation() == true)
+            {
+                Authentication();
+            }
+        }
+
+        public bool Validation()
+        {
+            if (string.IsNullOrEmpty(LoginTb.Text) && string.IsNullOrEmpty(PasswordPb.Password))
+            {
+                Feedback.Warning("Поля для ввода не должны быть пустым. Введите логин и пароль!");
+                return false;
+            }
+            else if (string.IsNullOrEmpty(LoginTb.Text))
+            {
+                Feedback.Warning("Поля для ввода не должны быть пустым. Введите логин!");
+                return false;
+            }
+            else if (string.IsNullOrEmpty(PasswordPb.Password))
+            {
+                Feedback.Warning("Поля для ввода не должны быть пустым. Введите пароль!");
+                return false;
+            }
+            return true;
+        }
+
+        public void Authentication()
+        {
+
+
+            Authorization();
+        }
+        public void Authorization()
         {
 
         }

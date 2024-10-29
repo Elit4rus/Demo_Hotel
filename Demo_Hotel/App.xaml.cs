@@ -13,7 +13,6 @@ namespace Demo_Hotel
         /// </summary>
         public static HotelEntities context = new HotelEntities();
 
-
         /// <summary>
         /// Представляет поле для хранения пользователя вошедшего в систему
         /// </summary>
