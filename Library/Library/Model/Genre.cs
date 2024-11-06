@@ -7,21 +7,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Demo_Hotel.Model
+namespace Library.Model
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Floor
+    public partial class Genre
     {
-        public Floor()
+        public Genre()
         {
-            this.Room = new HashSet<Room>();
+            this.Book = new HashSet<Book>();
         }
     
-        public int Id { get; set; }
-        public string Name { get; set; }
+        public int ID { get; set; }
+        public string Title { get; set; }
     
-        public virtual ICollection<Room> Room { get; set; }
+        public virtual ICollection<Book> Book { get; set; }
     }
 }

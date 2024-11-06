@@ -1,4 +1,6 @@
 ﻿using Demo_Hotel.AppData;
+using Demo_Hotel.Model;
+using System;
 using System.Linq;
 using System.Windows;
 
@@ -12,6 +14,7 @@ namespace Demo_Hotel.Views.Windows
         public AuthorizationWindow()
         {
             InitializeComponent();
+            BlockingUserByDate();
         }
 
         private void EntryBtn_Click(object sender, RoutedEventArgs e)
@@ -19,6 +22,7 @@ namespace Demo_Hotel.Views.Windows
             if (Validation() == true)
             {
                 Authentication();
+                Authorization();
             }
         }
 
@@ -41,13 +45,13 @@ namespace Demo_Hotel.Views.Windows
             }
             return true;
         }
-
         public void Authentication()
         {
             App.currentUser = App.context.User.FirstOrDefault(user => user.Login == LoginTb.Text && user.Password == PasswordPb.Password);
 
             if (App.currentUser == null)
             {
+
                 Feedback.Error($"Вы ввели неверный логин или пароль. Пожалуйста проверьте ещё раз введенные данные!");
             }
             // Иначе если
@@ -63,14 +67,37 @@ namespace Demo_Hotel.Views.Windows
             else
             {
                 Feedback.Information("Вы успешно авторизовались!");
-                Authorization();
-                Close();
             }
 
         }
         public void Authorization()
         {
-
+            switch (App.currentUser.RoleId)
+            {
+                case 1:
+                    AdministratorWindow administratorWindow = new AdministratorWindow();
+                    administratorWindow.Show();
+                    break;
+                case 2:
+                    UserWindow userWindow = new UserWindow();
+                    userWindow.Show();
+                    break;
+                default:
+                    Feedback.Error("Роль пользователя не найдена! Доступ запрещён.");
+                    break;
+            }
+            Close();
+        }
+        public void BlockingUserByDate()
+        {
+            foreach (User user in App.context.User.Where(u => u.RoleId==2))
+            {
+                if (user.RegistrationDate.AddMonths(1)<DateTime.Now.Date && !user.IsActivated == false)
+                {
+                    user.IsBlocked = true;
+                }
+            }
+            App.context.SaveChanges();
         }
     }
 }

@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0700F16A-669B-48D9-8203-9AF2FFBFB6F3}</ProjectGuid>
+    <ProjectGuid>{814F3050-0426-4D2E-AA49-CFDFDAFB270F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Demo_Hotel</RootNamespace>
-    <AssemblyName>Demo_Hotel</AssemblyName>
+    <RootNamespace>Library</RootNamespace>
+    <AssemblyName>Library</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -62,98 +62,39 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AppData\Feedback.cs" />
-    <Compile Include="Model\Booking.cs">
-      <DependentUpon>HotelModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Category.cs">
-      <DependentUpon>HotelModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Client.cs">
-      <DependentUpon>HotelModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Floor.cs">
-      <DependentUpon>HotelModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\HotelModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HotelModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\HotelModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HotelModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\HotelModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HotelModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Role.cs">
-      <DependentUpon>HotelModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Room.cs">
-      <DependentUpon>HotelModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Status.cs">
-      <DependentUpon>HotelModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\User.cs">
-      <DependentUpon>HotelModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Windows\AdministratorWindow.xaml.cs">
-      <DependentUpon>AdministratorWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Windows\AuthorizationWindow.xaml.cs">
-      <DependentUpon>AuthorizationWindow.xaml</DependentUpon>
-    </Compile>
+    <Page Include="View\Windows\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Views\Windows\ChangePasswordWindow.xaml.cs">
-      <DependentUpon>ChangePasswordWindow.xaml</DependentUpon>
+    <Compile Include="Model\Book.cs">
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Views\Windows\UserWindow.xaml.cs">
-      <DependentUpon>UserWindow.xaml</DependentUpon>
+    <Compile Include="Model\Genre.cs">
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Page Include="Styles\ButtonStyle.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Styles\ComboBoxStyle.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Styles\DatePickerStyle.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Styles\TextBlockStyle.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Styles\TextBoxStyle.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Windows\AdministratorWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Windows\AuthorizationWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Windows\ChangePasswordWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Windows\UserWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
+    <Compile Include="Model\Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Windows\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -173,12 +114,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Model\HotelModel.edmx">
+    <EntityDeploy Include="Model\Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>HotelModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model\HotelModel.edmx.diagram">
-      <DependentUpon>HotelModel.edmx</DependentUpon>
+    <None Include="Model\Model.edmx.diagram">
+      <DependentUpon>Model.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -190,22 +131,22 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\Pages\" />
+    <Folder Include="Styles\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model\Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Content>
+    <Content Include="Model\Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Model\HotelModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>HotelModel.edmx</DependentUpon>
-      <LastGenOutput>HotelModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Model\HotelModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>HotelModel.edmx</DependentUpon>
-      <LastGenOutput>HotelModel.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

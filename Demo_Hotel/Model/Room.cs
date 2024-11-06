@@ -19,11 +19,11 @@ namespace Demo_Hotel.Model
             this.Booking = new HashSet<Booking>();
         }
     
-        public int ID { get; set; }
+        public int Id { get; set; }
         public int Number { get; set; }
-        public int FloorID { get; set; }
-        public int CategoryID { get; set; }
-        public int StatusID { get; set; }
+        public int FloorId { get; set; }
+        public int CategoryId { get; set; }
+        public int StatusId { get; set; }
     
         public virtual ICollection<Booking> Booking { get; set; }
         public virtual Category Category { get; set; }

@@ -14,15 +14,21 @@ namespace Demo_Hotel.Model
     
     public partial class User
     {
-        public int ID { get; set; }
-        public string FullName { get; set; }
+        public User()
+        {
+            this.Booking = new HashSet<Booking>();
+        }
+    
+        public int Id { get; set; }
+        public string Fullname { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
         public System.DateTime RegistrationDate { get; set; }
-        public bool IsActivatedID { get; set; }
+        public bool IsActivated { get; set; }
         public bool IsBlocked { get; set; }
-        public int RoleID { get; set; }
+        public int RoleId { get; set; }
     
+        public virtual ICollection<Booking> Booking { get; set; }
         public virtual Role Role { get; set; }
     }
 }

@@ -4,85 +4,85 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище KrysenkoHotelModel" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище Krysenko.HotelModel" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Booking">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="EntryDate" Type="date" Nullable="false" />
           <Property Name="DepartureDate" Type="date" Nullable="false" />
-          <Property Name="ClientID" Type="int" Nullable="false" />
-          <Property Name="UserID" Type="int" Nullable="false" />
-          <Property Name="RoomID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClientId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="RoomId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Category">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="Client">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="FullName" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fullname" Type="nvarchar" MaxLength="200" Nullable="false" />
         </EntityType>
         <EntityType Name="Floor">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Title" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
         </EntityType>
         <EntityType Name="Room">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Number" Type="int" Nullable="false" />
-          <Property Name="FloorID" Type="int" Nullable="false" />
-          <Property Name="CategoryID" Type="int" Nullable="false" />
-          <Property Name="StatusID" Type="int" Nullable="false" />
+          <Property Name="FloorId" Type="int" Nullable="false" />
+          <Property Name="CategoryId" Type="int" Nullable="false" />
+          <Property Name="StatusId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Status">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="FullName" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fullname" Type="nvarchar" MaxLength="200" Nullable="false" />
           <Property Name="Login" Type="nvarchar" MaxLength="32" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="32" Nullable="false" />
           <Property Name="RegistrationDate" Type="date" Nullable="false" />
-          <Property Name="IsActivatedID" Type="bit" Nullable="false" />
+          <Property Name="IsActivated" Type="bit" Nullable="false" />
           <Property Name="IsBlocked" Type="bit" Nullable="false" />
-          <Property Name="RoleID" Type="int" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_Booking_Client">
           <End Role="Client" Type="Self.Client" Multiplicity="1" />
           <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Client">
-              <PropertyRef Name="ID" />
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Booking">
-              <PropertyRef Name="ClientID" />
+              <PropertyRef Name="ClientId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -91,10 +91,22 @@
           <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Room">
-              <PropertyRef Name="ID" />
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Booking">
-              <PropertyRef Name="RoomID" />
+              <PropertyRef Name="RoomId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Booking_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Booking">
+              <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -103,10 +115,10 @@
           <End Role="Room" Type="Self.Room" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Category">
-              <PropertyRef Name="ID" />
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Room">
-              <PropertyRef Name="CategoryID" />
+              <PropertyRef Name="CategoryId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -115,10 +127,10 @@
           <End Role="Room" Type="Self.Room" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Floor">
-              <PropertyRef Name="ID" />
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Room">
-              <PropertyRef Name="FloorID" />
+              <PropertyRef Name="FloorId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -127,10 +139,10 @@
           <End Role="Room" Type="Self.Room" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Status">
-              <PropertyRef Name="ID" />
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Room">
-              <PropertyRef Name="StatusID" />
+              <PropertyRef Name="StatusId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -139,10 +151,10 @@
           <End Role="User" Type="Self.User" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Role">
-              <PropertyRef Name="ID" />
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="User">
-              <PropertyRef Name="RoleID" />
+              <PropertyRef Name="RoleId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -161,6 +173,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_Booking_Room" Association="Self.FK_Booking_Room">
             <End Role="Room" EntitySet="Room" />
+            <End Role="Booking" EntitySet="Booking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Booking_User" Association="Self.FK_Booking_User">
+            <End Role="User" EntitySet="User" />
             <End Role="Booking" EntitySet="Booking" />
           </AssociationSet>
           <AssociationSet Name="FK_Room_Category" Association="Self.FK_Room_Category">
@@ -184,61 +200,62 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="KrysenkoHotelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="Krysenko.HotelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Booking">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="EntryDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="DepartureDate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="ClientID" Type="Int32" Nullable="false" />
-          <Property Name="UserID" Type="Int32" Nullable="false" />
-          <Property Name="RoomID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClientId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="RoomId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Client" Relationship="Self.FK_Booking_Client" FromRole="Booking" ToRole="Client" />
           <NavigationProperty Name="Room" Relationship="Self.FK_Booking_Room" FromRole="Booking" ToRole="Room" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Booking_User" FromRole="Booking" ToRole="User" />
         </EntityType>
         <EntityType Name="Category">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Room" Relationship="Self.FK_Room_Category" FromRole="Category" ToRole="Room" />
         </EntityType>
         <EntityType Name="Client">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FullName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fullname" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Booking" Relationship="Self.FK_Booking_Client" FromRole="Client" ToRole="Booking" />
         </EntityType>
         <EntityType Name="Floor">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Room" Relationship="Self.FK_Room_Floor" FromRole="Floor" ToRole="Room" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Title" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="User" Relationship="Self.FK_User_Role" FromRole="Role" ToRole="User" />
         </EntityType>
         <EntityType Name="Room">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Number" Type="Int32" Nullable="false" />
-          <Property Name="FloorID" Type="Int32" Nullable="false" />
-          <Property Name="CategoryID" Type="Int32" Nullable="false" />
-          <Property Name="StatusID" Type="Int32" Nullable="false" />
+          <Property Name="FloorId" Type="Int32" Nullable="false" />
+          <Property Name="CategoryId" Type="Int32" Nullable="false" />
+          <Property Name="StatusId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Booking" Relationship="Self.FK_Booking_Room" FromRole="Room" ToRole="Booking" />
           <NavigationProperty Name="Category" Relationship="Self.FK_Room_Category" FromRole="Room" ToRole="Category" />
           <NavigationProperty Name="Floor" Relationship="Self.FK_Room_Floor" FromRole="Room" ToRole="Floor" />
@@ -246,24 +263,25 @@
         </EntityType>
         <EntityType Name="Status">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Room" Relationship="Self.FK_Room_Status" FromRole="Status" ToRole="Room" />
         </EntityType>
         <EntityType Name="User">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FullName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fullname" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Login" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="RegistrationDate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="IsActivatedID" Type="Boolean" Nullable="false" />
+          <Property Name="IsActivated" Type="Boolean" Nullable="false" />
           <Property Name="IsBlocked" Type="Boolean" Nullable="false" />
-          <Property Name="RoleID" Type="Int32" Nullable="false" />
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Booking" Relationship="Self.FK_Booking_User" FromRole="User" ToRole="Booking" />
           <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
         </EntityType>
         <Association Name="FK_Booking_Client">
@@ -271,10 +289,10 @@
           <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Client">
-              <PropertyRef Name="ID" />
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Booking">
-              <PropertyRef Name="ClientID" />
+              <PropertyRef Name="ClientId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -283,10 +301,22 @@
           <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Room">
-              <PropertyRef Name="ID" />
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Booking">
-              <PropertyRef Name="RoomID" />
+              <PropertyRef Name="RoomId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Booking_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Booking">
+              <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -295,10 +325,10 @@
           <End Role="Room" Type="Self.Room" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Category">
-              <PropertyRef Name="ID" />
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Room">
-              <PropertyRef Name="CategoryID" />
+              <PropertyRef Name="CategoryId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -307,10 +337,10 @@
           <End Role="Room" Type="Self.Room" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Floor">
-              <PropertyRef Name="ID" />
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Room">
-              <PropertyRef Name="FloorID" />
+              <PropertyRef Name="FloorId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -319,10 +349,10 @@
           <End Role="User" Type="Self.User" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Role">
-              <PropertyRef Name="ID" />
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="User">
-              <PropertyRef Name="RoleID" />
+              <PropertyRef Name="RoleId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -331,10 +361,10 @@
           <End Role="Room" Type="Self.Room" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Status">
-              <PropertyRef Name="ID" />
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Room">
-              <PropertyRef Name="StatusID" />
+              <PropertyRef Name="StatusId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -353,6 +383,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_Booking_Room" Association="Self.FK_Booking_Room">
             <End Role="Room" EntitySet="Room" />
+            <End Role="Booking" EntitySet="Booking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Booking_User" Association="Self.FK_Booking_User">
+            <End Role="User" EntitySet="User" />
             <End Role="Booking" EntitySet="Booking" />
           </AssociationSet>
           <AssociationSet Name="FK_Room_Category" Association="Self.FK_Room_Category">
@@ -379,79 +413,79 @@
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="Хранилище KrysenkoHotelModelContainer" CdmEntityContainer="HotelEntities">
           <EntitySetMapping Name="Booking">
-            <EntityTypeMapping TypeName="KrysenkoHotelModel.Booking">
+            <EntityTypeMapping TypeName="Krysenko.HotelModel.Booking">
               <MappingFragment StoreEntitySet="Booking">
-                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
                 <ScalarProperty Name="DepartureDate" ColumnName="DepartureDate" />
-                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
-                <ScalarProperty Name="UserID" ColumnName="UserID" />
-                <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+                <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="RoomId" ColumnName="RoomId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Category">
-            <EntityTypeMapping TypeName="KrysenkoHotelModel.Category">
+            <EntityTypeMapping TypeName="Krysenko.HotelModel.Category">
               <MappingFragment StoreEntitySet="Category">
-                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Client">
-            <EntityTypeMapping TypeName="KrysenkoHotelModel.Client">
+            <EntityTypeMapping TypeName="Krysenko.HotelModel.Client">
               <MappingFragment StoreEntitySet="Client">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Fullname" ColumnName="Fullname" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Floor">
-            <EntityTypeMapping TypeName="KrysenkoHotelModel.Floor">
+            <EntityTypeMapping TypeName="Krysenko.HotelModel.Floor">
               <MappingFragment StoreEntitySet="Floor">
-                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Role">
-            <EntityTypeMapping TypeName="KrysenkoHotelModel.Role">
+            <EntityTypeMapping TypeName="Krysenko.HotelModel.Role">
               <MappingFragment StoreEntitySet="Role">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Room">
-            <EntityTypeMapping TypeName="KrysenkoHotelModel.Room">
+            <EntityTypeMapping TypeName="Krysenko.HotelModel.Room">
               <MappingFragment StoreEntitySet="Room">
-                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Number" ColumnName="Number" />
-                <ScalarProperty Name="FloorID" ColumnName="FloorID" />
-                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
-                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="FloorId" ColumnName="FloorId" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Status">
-            <EntityTypeMapping TypeName="KrysenkoHotelModel.Status">
+            <EntityTypeMapping TypeName="Krysenko.HotelModel.Status">
               <MappingFragment StoreEntitySet="Status">
-                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="User">
-            <EntityTypeMapping TypeName="KrysenkoHotelModel.User">
+            <EntityTypeMapping TypeName="Krysenko.HotelModel.User">
               <MappingFragment StoreEntitySet="User">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Fullname" ColumnName="Fullname" />
                 <ScalarProperty Name="Login" ColumnName="Login" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
-                <ScalarProperty Name="IsActivatedID" ColumnName="IsActivatedID" />
+                <ScalarProperty Name="IsActivated" ColumnName="IsActivated" />
                 <ScalarProperty Name="IsBlocked" ColumnName="IsBlocked" />
-                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

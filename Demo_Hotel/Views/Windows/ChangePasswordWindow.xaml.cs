@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Demo_Hotel.AppData;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,6 +28,15 @@ namespace Demo_Hotel.Views.Windows
         private void ChangePasswordBtn_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+        void ChangePassword()
+        {
+            if (string.IsNullOrEmpty(OldPasswordPb.Password) ||
+                string.IsNullOrEmpty(NewPasswordPb.Password) ||
+                string.IsNullOrEmpty(AcceptNewPasswordPb.Password))
+            {
+                Feedback.Warning("Все поля обязательны для заполнения! Заполните каждое поле!");
+            }
         }
     }
 }

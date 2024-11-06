@@ -14,14 +14,15 @@ namespace Demo_Hotel.Model
     
     public partial class Booking
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         public System.DateTime EntryDate { get; set; }
         public System.DateTime DepartureDate { get; set; }
-        public int ClientID { get; set; }
-        public int UserID { get; set; }
-        public int RoomID { get; set; }
+        public int ClientId { get; set; }
+        public int UserId { get; set; }
+        public int RoomId { get; set; }
     
         public virtual Client Client { get; set; }
         public virtual Room Room { get; set; }
+        public virtual User User { get; set; }
     }
 }

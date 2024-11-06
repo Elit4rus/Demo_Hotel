@@ -19,8 +19,8 @@ namespace Demo_Hotel.Model
             this.User = new HashSet<User>();
         }
     
-        public int ID { get; set; }
-        public string Title { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
     
         public virtual ICollection<User> User { get; set; }
     }

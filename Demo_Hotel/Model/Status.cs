@@ -19,7 +19,7 @@ namespace Demo_Hotel.Model
             this.Room = new HashSet<Room>();
         }
     
-        public int ID { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
     
         public virtual ICollection<Room> Room { get; set; }

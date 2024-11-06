@@ -19,8 +19,8 @@ namespace Demo_Hotel.Model
             this.Booking = new HashSet<Booking>();
         }
     
-        public int ID { get; set; }
-        public string FullName { get; set; }
+        public int Id { get; set; }
+        public string Fullname { get; set; }
     
         public virtual ICollection<Booking> Booking { get; set; }
     }
