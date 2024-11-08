@@ -31,6 +31,7 @@ namespace Demo_Hotel.Views.Windows
         }
         void ChangePassword()
         {
+            // Валидация (проверка полей на пустые значения)
             if (string.IsNullOrEmpty(OldPasswordPb.Password) ||
                 string.IsNullOrEmpty(NewPasswordPb.Password) ||
                 string.IsNullOrEmpty(AcceptNewPasswordPb.Password))
