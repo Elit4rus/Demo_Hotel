@@ -11,6 +11,12 @@ namespace Demo_Hotel.Views.Windows
     /// </summary>
     public partial class AuthorizationWindow : Window
     {
+        /// <summary>
+        /// Представляет поле для хранения количество попыток входа.
+        /// </summary>
+
+        int loginAttemptCount = 0;
+
         public AuthorizationWindow()
         {
             InitializeComponent();
@@ -22,7 +28,6 @@ namespace Demo_Hotel.Views.Windows
             if (Validation() == true)
             {
                 Authentication();
-                Authorization();
             }
         }
 
@@ -51,8 +56,16 @@ namespace Demo_Hotel.Views.Windows
 
             if (App.currentUser == null)
             {
+                loginAttemptCount++;
+                Feedback.Error($"Вы ввели неверный логин или пароль. Пожалуйста проверьте ещё раз введенные данные. Попытка: {loginAttemptCount} из 3");
 
-                Feedback.Error($"Вы ввели неверный логин или пароль. Пожалуйста проверьте ещё раз введенные данные!");
+                if (loginAttemptCount == 3)
+                {
+                    // App.currentUser.IsBlocked = true;
+                    loginAttemptCount = 0;
+                    Feedback.Error("Вы заблокированы! Обратитесь к администратору.");
+                    Close();
+                }
             }
             // Иначе если
             else if (App.currentUser.IsBlocked == true)
@@ -67,6 +80,8 @@ namespace Demo_Hotel.Views.Windows
             else
             {
                 Feedback.Information("Вы успешно авторизовались!");
+
+                Authorization();
             }
 
         }

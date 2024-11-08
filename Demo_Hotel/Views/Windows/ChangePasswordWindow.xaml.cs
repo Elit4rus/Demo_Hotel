@@ -27,7 +27,7 @@ namespace Demo_Hotel.Views.Windows
 
         private void ChangePasswordBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            ChangePassword();
         }
         void ChangePassword()
         {
@@ -37,6 +37,26 @@ namespace Demo_Hotel.Views.Windows
                 string.IsNullOrEmpty(AcceptNewPasswordPb.Password))
             {
                 Feedback.Warning("Все поля обязательны для заполнения! Заполните каждое поле!");
+            }
+            else  if (OldPasswordPb.Password != App.currentUser.Password)
+            {
+                Feedback.Error("Неверно введён текущий пароль! Попробуйте снова.");
+            }
+            else if (NewPasswordPb.Password != AcceptNewPasswordPb.Password )
+            {
+                Feedback.Error("Новые пароли не совпадают! Попробуйте снова.");
+            }
+            else if (OldPasswordPb.Password == NewPasswordPb.Password)
+            {
+                Feedback.Error("Старый и новый пароль совпадают! Придумайте новый пароль.");
+            }
+            else
+            {
+                App.currentUser.Password = NewPasswordPb.Password;
+                App.currentUser.IsActivated = true;
+                App.context.SaveChanges();
+                Feedback.Information("Пароль успешно изменён!");
+                Close();
             }
         }
     }
