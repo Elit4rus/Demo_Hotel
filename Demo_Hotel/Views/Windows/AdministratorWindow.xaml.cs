@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Demo_Hotel.Views.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,21 @@ namespace Demo_Hotel.Views.Windows
         public AdministratorWindow()
         {
             InitializeComponent();
+
+            // Открытие страницы пользователей по умолчанию
+            MainFrame.Navigate(new UsersPage());
+        }
+
+        private void UserBtn_Click(object sender, RoutedEventArgs e)
+        {
+            // Открытие страницы пользователей
+            MainFrame.Navigate(new UsersPage());
+        }
+
+        private void RoomsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            // Открытие страницы комнат
+            MainFrame.Navigate(new RoomsPage());
         }
     }
 }

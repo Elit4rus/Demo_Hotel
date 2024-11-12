@@ -4,6 +4,6 @@
         <Setter Property="FontSize" Value="20" />
         <Setter Property="FontFamily" Value="Arial" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="Padding" Value="5 0" />
+        <Setter Property="Padding" Value="5 0"/>
     </Style>
 </ResourceDictionary>

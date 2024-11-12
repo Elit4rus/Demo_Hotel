@@ -1,0 +1,31 @@
+﻿<Window x:Class="Barbershop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Barbershop"
+        mc:Ignorable="d"
+        Title="Главное окно" Height="800" Width="1300" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Frame x:Name="MainFrame" Grid.Column="1" NavigationUIVisibility="Hidden"/>
+        <Image Source="/Resources/SK3.png" Stretch="Fill"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="1">
+                <Button x:Name="ManufacturerBtn" Click="ManufacturerBtn_Click" Content="Добавить производителя" FontSize="20" FontWeight="DemiBold" Width="270" Height="65" Margin="0 0 0 30"/>
+                <Button x:Name="ProductBtn" Click="ProductBtn_Click"  Content="Добавить товар" FontSize="20" FontWeight="DemiBold" Width="270" Height="65" Margin="0 0 0 30"/>
+                <Button x:Name="EmployeeBtn" Click="EmployeeBtn_Click" Content="Добавить сотрудника" FontSize="20" FontWeight="DemiBold" Width="270" Height="65" Margin="0 0 0 30"/>
+                <Button x:Name="AccountingBtn" Click="AccountingBtn_Click"  Content="Ведение учета" FontSize="20" FontWeight="DemiBold" Width="270" Height="65" Margin="0 0 0 30"/>
+                <Button x:Name="ReportBtn" Click="ReportBtn_Click" Content="Отчёт" FontSize="20" FontWeight="DemiBold" Width="270" Height="65"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
