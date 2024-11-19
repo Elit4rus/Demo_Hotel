@@ -1,5 +1,6 @@
 ﻿using Demo_Hotel.AppData;
 using Demo_Hotel.Model;
+using Demo_Hotel.Views.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,7 +35,11 @@ namespace Demo_Hotel.Views.Pages
 
         private void AddUserBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            AddUserWindow addUserWindow = new AddUserWindow();
+            if (addUserWindow.ShowDialog() == true)
+            {
+                UsersLv.ItemsSource = App.context.User.ToList();
+            }
         }
 
         private void UsersLv_SelectionChanged(object sender, SelectionChangedEventArgs e)
