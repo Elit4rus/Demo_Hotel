@@ -1,4 +1,4 @@
-﻿using Barbershop.Model;
+﻿using Pharmacy.Model;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -7,13 +7,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Barbershop
+namespace Pharmacy
 {
     /// <summary>
     /// Логика взаимодействия для App.xaml
     /// </summary>
     public partial class App : Application
     {
-        public static BarbershopEntities context = new BarbershopEntities();
+        public static PharmacyEntities context = new PharmacyEntities();
     }
 }

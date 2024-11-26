@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Demo_Hotel.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,40 @@ namespace Demo_Hotel.Views.Pages
     /// </summary>
     public partial class RoomsPage : Page
     {
+        List<Category> categories = App.context.Category.ToList(); 
         public RoomsPage()
         {
             InitializeComponent();
+
+            RoomsLb.ItemsSource = App.context.Room.ToList();
+            categories.Insert(0, new Category { Name = "Все статусы" });
+            FilterCmb.ItemsSource = categories;
+            FilterCmb.DisplayMemberPath = "Name";
+            FilterCmb.SelectedValuePath = "Id";
+            FilterCmb.SelectedIndex = 0;
+
+        }
+
+        private void SearchTb_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void FilterCmb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (FilterCmb.SelectedIndex != 0)
+            {
+                RoomsLb.ItemsSource = App.context.Room.Where(r => r.CategoryId == FilterCmb.SelectedIndex).ToList();
+            }
+            else
+            {
+                RoomsLb.ItemsSource = App.context.Room.ToList();
+            }
+        }
+
+        private void RoomsLb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

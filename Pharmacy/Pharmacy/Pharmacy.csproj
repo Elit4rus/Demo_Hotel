@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F87C4505-9E67-4461-8D58-D115A732DCE1}</ProjectGuid>
+    <ProjectGuid>{73D9D9B4-962C-46DF-A128-CE524A8D5304}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Barbershop</RootNamespace>
-    <AssemblyName>Barbershop</AssemblyName>
+    <RootNamespace>Pharmacy</RootNamespace>
+    <AssemblyName>Pharmacy</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -36,7 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -62,27 +62,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="View\Pages\AccountingPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Pages\EmployeePage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Pages\ManufacturerPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Pages\ProductPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Pages\WelcomePage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Windows\MainWindow.xaml">
+    <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -90,13 +70,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="AppData\FrameHelper.cs" />
-    <Compile Include="Model\Accounting.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Model\Employee.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Model\Manufacturer.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -118,27 +97,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
-    <Compile Include="View\Pages\AccountingPage.xaml.cs">
-      <DependentUpon>AccountingPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Pages\EmployeePage.xaml.cs">
-      <DependentUpon>EmployeePage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Pages\ManufacturerPage.xaml.cs">
-      <DependentUpon>ManufacturerPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Pages\ProductPage.xaml.cs">
-      <DependentUpon>ProductPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Pages\WelcomePage.xaml.cs">
-      <DependentUpon>WelcomePage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Windows\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -183,11 +141,6 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\SK.png" />
-    <Resource Include="Resources\SK2.png" />
-    <Resource Include="Resources\SK3.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

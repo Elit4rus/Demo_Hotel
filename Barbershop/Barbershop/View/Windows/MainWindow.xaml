@@ -24,7 +24,8 @@
                 <Button x:Name="ProductBtn" Click="ProductBtn_Click"  Content="Добавить товар" FontSize="20" FontWeight="DemiBold" Width="270" Height="65" Margin="0 0 0 30"/>
                 <Button x:Name="EmployeeBtn" Click="EmployeeBtn_Click" Content="Добавить сотрудника" FontSize="20" FontWeight="DemiBold" Width="270" Height="65" Margin="0 0 0 30"/>
                 <Button x:Name="AccountingBtn" Click="AccountingBtn_Click"  Content="Ведение учета" FontSize="20" FontWeight="DemiBold" Width="270" Height="65" Margin="0 0 0 30"/>
-                <Button x:Name="ReportBtn" Click="ReportBtn_Click" Content="Отчёт" FontSize="20" FontWeight="DemiBold" Width="270" Height="65"/>
+                <Button x:Name="ReportEmployeeBtn" Click="ReportEmployeeBtn_Click" Content="Отчёт по сотрудникам" FontSize="20" FontWeight="DemiBold" Width="270" Height="65" Margin="0 0 0 30"/>
+                <Button x:Name="ReportDateBtn" Click="ReportDateBtn_Click" Content="Отчёт по периодам" FontSize="20" FontWeight="DemiBold" Width="270" Height="65"/>
             </StackPanel>
         </Grid>
     </Grid>

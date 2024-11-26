@@ -38,20 +38,25 @@ namespace Barbershop
 
         private void ProductBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrame.Navigate(new ProductPage());
         }
 
         private void EmployeeBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrame.Navigate(new EmployeePage());
         }
 
         private void AccountingBtn_Click(object sender, RoutedEventArgs e)
         {
+            MainFrame.Navigate(new AccountingPage());
+        }
+
+        private void ReportEmployeeBtn_Click(object sender, RoutedEventArgs e)
+        {
 
         }
 
-        private void ReportBtn_Click(object sender, RoutedEventArgs e)
+        private void ReportDateBtn_Click(object sender, RoutedEventArgs e)
         {
 
         }

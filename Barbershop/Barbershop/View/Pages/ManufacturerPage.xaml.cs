@@ -24,5 +24,24 @@ namespace Barbershop.View.Pages
         {
             InitializeComponent();
         }
+
+        private void AddManufacturerBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(ManufacturerTb.Text))
+            {
+                MessageBox.Show("Введите данные!");
+            }
+            else
+            {
+                try
+                {
+
+                }
+                catch
+                {
+                    MessageBox.Show("Данные введены неверно!");
+                }
+            }
+        }
     }
 }
